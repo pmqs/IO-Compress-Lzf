@@ -13,7 +13,7 @@ use IO::Compress::Adapter::Lzf ;
 
 our ($VERSION, @ISA, @EXPORT_OK, %EXPORT_TAGS, $LzfError);
 
-$VERSION = '2.001';
+$VERSION = '2.002';
 $LzfError = '';
 
 @ISA    = qw(Exporter IO::Compress::Base);
