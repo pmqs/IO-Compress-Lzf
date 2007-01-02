@@ -4,6 +4,7 @@ lib/IO/Compress/Lzf.pm
 lib/IO/Compress/Adapter/Lzf.pm
 lib/IO/Uncompress/Adapter/Lzf.pm
 Makefile.PL
+t/000prereq.t
 t/050interop-lzf.t
 t/100generic-lzf.t
 t/101truncate-lzf.t

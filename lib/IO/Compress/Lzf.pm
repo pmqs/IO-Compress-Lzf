@@ -5,15 +5,15 @@ use warnings;
 require Exporter ;
 use bytes;
 
-use IO::Compress::Base;
+use IO::Compress::Base 2.003 ;
 
-use IO::Compress::Base::Common qw(createSelfTiedObject);
-use IO::Compress::Adapter::Lzf ;
+use IO::Compress::Base::Common  2.003 qw(createSelfTiedObject);
+use IO::Compress::Adapter::Lzf  2.003 ;
 #use Compress::Lzf ;
 
 our ($VERSION, @ISA, @EXPORT_OK, %EXPORT_TAGS, $LzfError);
 
-$VERSION = '2.002';
+$VERSION = '2.003';
 $LzfError = '';
 
 @ISA    = qw(Exporter IO::Compress::Base);
@@ -99,7 +99,7 @@ sub getExtraParams
 {
     my $self = shift ;
 
-    use IO::Compress::Base::Common qw(:Parse);
+    use IO::Compress::Base::Common  2.003 qw(:Parse);
     
     return (
             'BlockSize' => [0, 1, Parse_unsigned,  (64* 1024) - 1],
@@ -813,7 +813,7 @@ See the Changes file.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (c) 2005-2006 Paul Marquess. All rights reserved.
+Copyright (c) 2005-2007 Paul Marquess. All rights reserved.
 
 This program is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself.
