@@ -5,15 +5,15 @@ use warnings;
 require Exporter ;
 use bytes;
 
-use IO::Compress::Base 2.004 ;
+use IO::Compress::Base 2.005 ;
 
-use IO::Compress::Base::Common  2.004 qw(createSelfTiedObject);
-use IO::Compress::Adapter::Lzf  2.004 ;
+use IO::Compress::Base::Common  2.005 qw(createSelfTiedObject);
+use IO::Compress::Adapter::Lzf  2.005 ;
 #use Compress::Lzf ;
 
 our ($VERSION, @ISA, @EXPORT_OK, %EXPORT_TAGS, $LzfError);
 
-$VERSION = '2.004';
+$VERSION = '2.005';
 $LzfError = '';
 
 @ISA    = qw(Exporter IO::Compress::Base);
@@ -99,7 +99,7 @@ sub getExtraParams
 {
     my $self = shift ;
 
-    use IO::Compress::Base::Common  2.004 qw(:Parse);
+    use IO::Compress::Base::Common  2.005 qw(:Parse);
     
     return (
             'BlockSize' => [0, 1, Parse_unsigned,  (64* 1024) - 1],
