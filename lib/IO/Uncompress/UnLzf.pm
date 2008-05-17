@@ -4,16 +4,16 @@ use strict ;
 use warnings;
 use bytes;
 
-use IO::Compress::Base::Common  2.010 qw(:Status createSelfTiedObject);
+use IO::Compress::Base::Common  2.011 qw(:Status createSelfTiedObject);
 
-use IO::Uncompress::Base  2.010 ;
-use IO::Uncompress::Adapter::Lzf  2.010 ;
+use IO::Uncompress::Base  2.011 ;
+use IO::Uncompress::Adapter::Lzf  2.011 ;
 
 
 require Exporter ;
 our ($VERSION, @ISA, @EXPORT_OK, %EXPORT_TAGS, $UnLzfError);
 
-$VERSION = '2.010';
+$VERSION = '2.011';
 $UnLzfError = '';
 
 @ISA    = qw( Exporter IO::Uncompress::Base );
@@ -67,7 +67,6 @@ sub postCheckParams
 sub mkUncomp
 {
     my $self = shift ;
-    my $class = shift ;
     my $got = shift ;
 
      my $magic = $self->ckMagic()
