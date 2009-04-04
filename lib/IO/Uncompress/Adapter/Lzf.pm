@@ -4,11 +4,11 @@ use strict;
 use warnings;
 use bytes;
 
-use IO::Compress::Base::Common  2.015 qw(:Status);
+use IO::Compress::Base::Common  2.017 qw(:Status);
 use Compress::LZF ;
 
 our ($VERSION, @ISA);
-$VERSION = '2.015';
+$VERSION = '2.017';
 
 
 sub mkUncompObject
@@ -123,7 +123,6 @@ sub uncompr
     }
 
     $self->{Identity} = 0 ;
-
     $self->{ErrorNo} = 0;
 
     if ($@ || ! defined $to) {
