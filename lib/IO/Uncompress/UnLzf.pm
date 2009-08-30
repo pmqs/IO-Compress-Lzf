@@ -4,16 +4,16 @@ use strict ;
 use warnings;
 use bytes;
 
-use IO::Compress::Base::Common  2.020 qw(:Status createSelfTiedObject);
+use IO::Compress::Base::Common  2.021 qw(:Status createSelfTiedObject);
 
-use IO::Uncompress::Base  2.020 ;
-use IO::Uncompress::Adapter::Lzf  2.020 ;
+use IO::Uncompress::Base  2.021 ;
+use IO::Uncompress::Adapter::Lzf  2.021 ;
 
 
 require Exporter ;
 our ($VERSION, @ISA, @EXPORT_OK, %EXPORT_TAGS, $UnLzfError);
 
-$VERSION = '2.020';
+$VERSION = '2.021';
 $UnLzfError = '';
 
 @ISA    = qw( Exporter IO::Uncompress::Base );
@@ -458,7 +458,7 @@ C<InputLength> option.
 =head2 Examples
 
 To read the contents of the file C<file1.txt.lzf> and write the
-compressed data to the file C<file1.txt>.
+uncompressed data to the file C<file1.txt>.
 
     use strict ;
     use warnings ;
