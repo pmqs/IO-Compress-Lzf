@@ -4,16 +4,16 @@ use strict ;
 use warnings;
 use bytes;
 
-use IO::Compress::Base::Common  2.032 qw(:Status createSelfTiedObject);
+use IO::Compress::Base::Common  2.033 qw(:Status createSelfTiedObject);
 
-use IO::Uncompress::Base  2.032 ;
-use IO::Uncompress::Adapter::Lzf  2.032 ;
+use IO::Uncompress::Base  2.033 ;
+use IO::Uncompress::Adapter::Lzf  2.033 ;
 
 
 require Exporter ;
 our ($VERSION, @ISA, @EXPORT_OK, %EXPORT_TAGS, $UnLzfError);
 
-$VERSION = '2.032';
+$VERSION = '2.033';
 $UnLzfError = '';
 
 @ISA    = qw( Exporter IO::Uncompress::Base );
@@ -454,8 +454,8 @@ data to the output data stream.
 
 So when the output is a filehandle it will carry out a seek to the eof
 before writing any uncompressed data. If the output is a filename, it will be opened for
-appending. If the output is a buffer, all uncompressed data will be appened to
-the existing buffer.
+appending. If the output is a buffer, all uncompressed data will be
+appended to the existing buffer.
 
 Conversely when C<Append> is not specified, or it is present and is set to
 false, it will operate as follows.
@@ -636,7 +636,7 @@ the module will allow reading of it anyway.
 
 In addition, if the input file/buffer does contain compressed data and
 there is non-compressed data immediately following it, setting this option
-will make this module treat the whole file/bufffer as a single data stream.
+will make this module treat the whole file/buffer as a single data stream.
 
 This option defaults to 1.
 
