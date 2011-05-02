@@ -5,15 +5,15 @@ use warnings;
 require Exporter ;
 use bytes;
 
-use IO::Compress::Base 2.033 ;
+use IO::Compress::Base 2.034 ;
 
-use IO::Compress::Base::Common  2.033 qw(createSelfTiedObject);
-use IO::Compress::Adapter::Lzf  2.033 ;
+use IO::Compress::Base::Common  2.034 qw(createSelfTiedObject);
+use IO::Compress::Adapter::Lzf  2.034 ;
 #use Compress::Lzf ;
 
 our ($VERSION, @ISA, @EXPORT_OK, %EXPORT_TAGS, $LzfError);
 
-$VERSION = '2.033';
+$VERSION = '2.034';
 $LzfError = '';
 
 @ISA    = qw(Exporter IO::Compress::Base);
@@ -98,7 +98,7 @@ sub getExtraParams
 {
     my $self = shift ;
 
-    use IO::Compress::Base::Common  2.033 qw(:Parse);
+    use IO::Compress::Base::Common  2.034 qw(:Parse);
     
     return (
             'BlockSize' => [0, 1, Parse_unsigned,  (64* 1024) - 1],
@@ -664,7 +664,7 @@ If the C<$z> object is associated with a file or a filehandle, C<fileno>
 will return the underlying file descriptor. Once the C<close> method is
 called C<fileno> will return C<undef>.
 
-If the C<$z> object is is associated with a buffer, this method will return
+If the C<$z> object is associated with a buffer, this method will return
 C<undef>.
 
 =head2 close
