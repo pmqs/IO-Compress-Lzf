@@ -10,6 +10,7 @@ use strict;
 use warnings;
 use bytes;
 
+use File::Spec ;
 use Test::More ;
 
 my $LZF ;
@@ -96,12 +97,15 @@ BEGIN {
     my $name = 'lzf';
     for my $dir (reverse split ":", $ENV{PATH})
     {
-        $LZF = "$dir/$name"
-            if -x "$dir/$name" ;
+        $LZF = File::Spec->catfile($dir,$name)
+            if -x File::Spec->catfile($dir,$name) ;
     }
 
     plan(skip_all => "Cannot find lzf")
         if ! $LZF ;
+
+    # Handle spaces in path to lzf 
+    $LZF = "\"$LZF\"" if $LZF =~ /\s/;    
 
     plan(skip_all => "$name doesn't work as expected")
         if ! ExternalLzfWorks();
