@@ -105,7 +105,7 @@ BEGIN {
         if ! $LZF ;
 
     # Handle spaces in path to lzf 
-    $LZF = "\"$LZF\"" if $LZF =~ /\s/;    
+    $LZF = "\"$LZF\"" if defined $LZF && $LZF =~ /\s/;    
 
     plan(skip_all => "$name doesn't work as expected")
         if ! ExternalLzfWorks();
