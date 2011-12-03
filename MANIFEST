@@ -1,4 +1,5 @@
 README
+lib/IO/Compress/Lzf/FAQ.pod
 lib/IO/Uncompress/UnLzf.pm
 lib/IO/Compress/Lzf.pm
 lib/IO/Compress/Adapter/Lzf.pm
@@ -36,6 +37,5 @@ t/compress/CompTestUtils.pm
 MANIFEST
 private/MakeUtil.pm
 Changes
-pod/FAQ.pod
 META.yml                                 Module YAML meta-data (added by MakeMaker)
 META.json                                Module JSON meta-data (added by MakeMaker)
