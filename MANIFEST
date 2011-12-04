@@ -1,5 +1,4 @@
 README
-lib/IO/Compress/Lzf/FAQ.pod
 lib/IO/Uncompress/UnLzf.pm
 lib/IO/Compress/Lzf.pm
 lib/IO/Compress/Adapter/Lzf.pm
