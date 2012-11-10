@@ -5,15 +5,15 @@ use warnings;
 require Exporter ;
 use bytes;
 
-use IO::Compress::Base 2.055 ;
+use IO::Compress::Base 2.057 ;
 
-use IO::Compress::Base::Common  2.055 qw(createSelfTiedObject);
-use IO::Compress::Adapter::Lzf  2.055 ;
+use IO::Compress::Base::Common  2.057 qw(createSelfTiedObject);
+use IO::Compress::Adapter::Lzf  2.057 ;
 #use Compress::Lzf ;
 
 our ($VERSION, @ISA, @EXPORT_OK, %EXPORT_TAGS, $LzfError);
 
-$VERSION = '2.055';
+$VERSION = '2.057';
 $LzfError = '';
 
 @ISA    = qw(Exporter IO::Compress::Base);
@@ -60,7 +60,7 @@ sub mkComp
     my $got = shift ;
 
     my ($obj, $errstr, $errno) =  IO::Compress::Adapter::Lzf::mkCompObject(
-                                              $got->value('BlockSize'),
+                                              $got->getValue('blocksize'),
                                           );
 
     return $self->saveErrorString(undef, $errstr, $errno)
@@ -94,21 +94,13 @@ sub mkFinalTrailer
 #    return '';
 #}
 
+our %PARAMS = (
+    'blocksize' => [IO::Compress::Base::Common::Parse_unsigned,  (64* 1024) - 1],
+    );
+
 sub getExtraParams
 {
-    my $self = shift ;
-
-    use IO::Compress::Base::Common  2.055 qw(:Parse);
-    
-    return (
-            'BlockSize' => [0, 1, Parse_unsigned,  (64* 1024) - 1],
-
-           # TODO 
-           #   none
-           #   crc32
-           #   adler32
-        );
-    
+    return %PARAMS ;
 }
 
 sub getInverseClass

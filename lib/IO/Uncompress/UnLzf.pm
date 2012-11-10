@@ -4,16 +4,16 @@ use strict ;
 use warnings;
 use bytes;
 
-use IO::Compress::Base::Common  2.055 qw(:Status createSelfTiedObject);
+use IO::Compress::Base::Common  2.057 qw(:Status createSelfTiedObject);
 
-use IO::Uncompress::Base  2.055 ;
-use IO::Uncompress::Adapter::Lzf  2.055 ;
+use IO::Uncompress::Base  2.057 ;
+use IO::Uncompress::Adapter::Lzf  2.057 ;
 
 
 require Exporter ;
 our ($VERSION, @ISA, @EXPORT_OK, %EXPORT_TAGS, $UnLzfError);
 
-$VERSION = '2.055';
+$VERSION = '2.057';
 $UnLzfError = '';
 
 @ISA    = qw( Exporter IO::Uncompress::Base );
@@ -58,9 +58,9 @@ sub postCheckParams
     my $got = shift ;
 
     return  $self->saveErrorString(undef, "MultiStream not supported by Lzf", STATUS_ERROR)
-        if $got->value('MultiStream') ;
+        if $got->getValue('multistream') ;
 
-    $got->value('MultiStream', 0); 
+    $got->setValue('multistream' => 0); 
     return 1;
 }
 
@@ -789,6 +789,13 @@ Returns true if the end of the compressed input stream has been reached.
 Provides a sub-set of the C<seek> functionality, with the restriction
 that it is only legal to seek forward in the input file/buffer.
 It is a fatal error to attempt to seek backward.
+
+Note that the implementation of C<seek> in this module does not provide
+true random access to a compressed file/buffer. It  works by uncompressing
+data from the current offset in the file/buffer until it reaches the
+ucompressed offset specified in the parameters to C<seek>. For very small
+files this may be acceptable behaviour. For large files it may cause an
+unacceptable delay.
 
 The C<$whence> parameter takes one the usual values, namely SEEK_SET,
 SEEK_CUR or SEEK_END.
