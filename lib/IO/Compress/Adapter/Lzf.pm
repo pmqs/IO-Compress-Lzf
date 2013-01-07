@@ -4,11 +4,11 @@ use strict;
 use warnings;
 use bytes;
 
-use IO::Compress::Base::Common  2.059 qw(:Status);
+use IO::Compress::Base::Common  2.060 qw(:Status);
 use Compress::LZF ;
 
 our ($VERSION);
-$VERSION = '2.059';
+$VERSION = '2.060';
 
 use constant SIGNATURE => 'ZV';
 
