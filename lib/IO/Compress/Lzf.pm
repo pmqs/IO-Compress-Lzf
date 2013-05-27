@@ -5,15 +5,15 @@ use warnings;
 require Exporter ;
 use bytes;
 
-use IO::Compress::Base 2.060 ;
+use IO::Compress::Base 2.061 ;
 
-use IO::Compress::Base::Common  2.060 qw(createSelfTiedObject);
-use IO::Compress::Adapter::Lzf  2.060 ;
+use IO::Compress::Base::Common  2.061 qw(createSelfTiedObject);
+use IO::Compress::Adapter::Lzf  2.061 ;
 #use Compress::Lzf ;
 
 our ($VERSION, @ISA, @EXPORT_OK, %EXPORT_TAGS, $LzfError);
 
-$VERSION = '2.060';
+$VERSION = '2.061';
 $LzfError = '';
 
 @ISA    = qw(Exporter IO::Compress::Base);
@@ -186,7 +186,7 @@ section.
 
 The functional interface needs Perl5.005 or better.
 
-=head2 lzf $input => $output [, OPTS]
+=head2 lzf $input_filename_or_reference => $output_filename_or_reference [, OPTS]
 
 C<lzf> expects at least two parameters,
 C<$input_filename_or_reference> and C<$output_filename_or_reference>.
