@@ -4,16 +4,16 @@ use strict ;
 use warnings;
 use bytes;
 
-use IO::Compress::Base::Common  2.071 qw(:Status createSelfTiedObject);
+use IO::Compress::Base::Common  2.072 qw(:Status createSelfTiedObject);
 
-use IO::Uncompress::Base  2.071 ;
-use IO::Uncompress::Adapter::Lzf  2.071 ;
+use IO::Uncompress::Base  2.072 ;
+use IO::Uncompress::Adapter::Lzf  2.072 ;
 
 
 require Exporter ;
 our ($VERSION, @ISA, @EXPORT_OK, %EXPORT_TAGS, $UnLzfError);
 
-$VERSION = '2.071';
+$VERSION = '2.072';
 $UnLzfError = '';
 
 @ISA    = qw( Exporter IO::Uncompress::Base );
@@ -969,7 +969,7 @@ See the Changes file.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (c) 2005-2016 Paul Marquess. All rights reserved.
+Copyright (c) 2005-2017 Paul Marquess. All rights reserved.
 
 This program is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself.
