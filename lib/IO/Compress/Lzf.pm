@@ -156,7 +156,6 @@ IO::Compress::Lzf - Write lzf files/buffers
     fileno $z
     close $z ;
 
-
 =head1 DESCRIPTION
 
 This module provides a Perl interface that allows writing lzf
@@ -738,6 +737,12 @@ Same as doing this
 =back
 
 =head1 EXAMPLES
+
+=head1 SUPPORT
+
+General feedback/questions/bug reports should be sent to 
+L<https://github.com/pmqs/IO-Compress-Lzf/issues> (preferred) or
+L<https://rt.cpan.org/Public/Dist/Display.html?Name=IO-Compress-Lzf>.
 
 =head1 SEE ALSO
 
