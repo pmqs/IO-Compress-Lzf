@@ -21,8 +21,8 @@ no_index:
     - private
 requires:
   Compress::LZF: '0'
-  IO::Compress::Base: '2.093'
-  IO::Uncompress::Base: '2.093'
+  IO::Compress::Base: '2.094'
+  IO::Uncompress::Base: '2.094'
 resources:
   bugtracker: https://github.com/pmqs/IO-Compress-Lzf/issues
   homepage: https://github.com/pmqs/IO-Compress-Lzf
