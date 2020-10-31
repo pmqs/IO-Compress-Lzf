@@ -60,7 +60,7 @@ sub postCheckParams
     return  $self->saveErrorString(undef, "MultiStream not supported by Lzf", STATUS_ERROR)
         if $got->getValue('multistream') ;
 
-    $got->setValue('multistream' => 0); 
+    $got->setValue('multistream' => 0);
     return 1;
 }
 
@@ -81,7 +81,7 @@ sub mkUncomp
         if ! defined $obj;
 
     *$self->{Uncomp} = $obj;
-    
+
     return 1;
 }
 
@@ -94,15 +94,15 @@ sub ckMagic
     $self->smartReadExact(\$magic, 3);
 
     *$self->{HeaderPending} = $magic ;
-    
-    return $self->HeaderError("Header size is " . 
-                                        3 . " bytes") 
+
+    return $self->HeaderError("Header size is " .
+                                        3 . " bytes")
         if length $magic != 3;
 
     return $self->HeaderError("Bad Magic.")
         if ! isLzfMagic($magic) ;
-                      
-        
+
+
     *$self->{Type} = 'lzf';
     return $magic;
 }
@@ -122,8 +122,8 @@ sub readHeader
         'TrailerLength'     => 0,
         'Header'            => '$magic'
         };
-    
-    
+
+
 
 }
 
@@ -140,7 +140,7 @@ sub readBlock
 
     return STATUS_ENDSTREAM
         if $self->smartEof() ;
-    
+
     my $buffer;
 
     if ( ! $self->smartReadExact(\$buffer, 3 )){
@@ -149,7 +149,7 @@ sub readBlock
     }
 
     #$self->smartReadExact(\$buffer, 3 )
-    #   or return $self->saveErrorString(STATUS_ERROR,"Minimum header size is " . 
+    #   or return $self->saveErrorString(STATUS_ERROR,"Minimum header size is " .
     #                                 3 . " bytes") ;
 
     my $sig     =              substr($buffer, 0, 2);
@@ -182,7 +182,7 @@ sub readBlock
     #}
     else {
         return $self->saveErrorString(STATUS_ERROR, "unexpected block type - $type", STATUS_ERROR);
-        
+
     }
 
     *$self->{LzfData}{compSize} = $cSize;
@@ -203,7 +203,7 @@ sub postBlockChk
 
     return $self->saveErrorString(STATUS_ERROR, "uncompressed size wrong", STATUS_ERROR)
         if length($$buffer) - $offset != *$self->{LzfData}{uncSize} ;
-    
+
     return STATUS_OK;
 }
 
@@ -212,7 +212,7 @@ sub isLzfMagic
     my $buffer = shift ;
     my $sig     =              substr($buffer, 0, 2);
     my $type    = unpack 'C',  substr($buffer, 2, 1);
-    return $sig eq SIGNATURE  && ($type == 0 || $type == 1); 
+    return $sig eq SIGNATURE  && ($type == 0 || $type == 1);
 }
 
 1 ;
@@ -977,4 +977,3 @@ Copyright (c) 2005-2020 Paul Marquess. All rights reserved.
 
 This program is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself.
-

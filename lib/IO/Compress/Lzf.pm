@@ -36,7 +36,7 @@ sub lzf
     return $obj->_def(@_);
 }
 
-sub mkHeader 
+sub mkHeader
 {
     my $self = shift ;
     my $param = shift ;
@@ -49,7 +49,7 @@ sub ckParams
 {
     my $self = shift ;
     my $got = shift;
-    
+
     return 1 ;
 }
 
@@ -66,8 +66,8 @@ sub mkComp
     return $self->saveErrorString(undef, $errstr, $errno)
         if ! defined $obj;
 
-    return $obj;    
-                                          
+    return $obj;
+
 }
 
 
@@ -768,4 +768,3 @@ Copyright (c) 2005-2020 Paul Marquess. All rights reserved.
 
 This program is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself.
-
