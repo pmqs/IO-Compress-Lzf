@@ -231,7 +231,7 @@ IO::Uncompress::UnLzf - Read lzf files/buffers
     my $status = unlzf $input => $output [,OPTS]
         or die "unlzf failed: $UnLzfError\n";
 
-    my $z = new IO::Uncompress::UnLzf $input [OPTS]
+    my $z = IO::Uncompress::UnLzf->new( $input [OPTS] )
         or die "unlzf failed: $UnLzfError\n";
 
     $status = $z->read($buffer)
@@ -524,7 +524,7 @@ uncompressed data to a buffer, C<$buffer>.
     use IO::Uncompress::UnLzf qw(unlzf $UnLzfError) ;
     use IO::File ;
 
-    my $input = new IO::File "<file1.txt.lzf"
+    my $input = IO::File->new( "<file1.txt.lzf" )
         or die "Cannot open 'file1.txt.lzf': $!\n" ;
     my $buffer ;
     unlzf $input => \$buffer
@@ -559,7 +559,7 @@ and if you want to compress each file one at a time, this will do the trick
 
 The format of the constructor for IO::Uncompress::UnLzf is shown below
 
-    my $z = new IO::Uncompress::UnLzf $input [OPTS]
+    my $z = IO::Uncompress::UnLzf->new( $input [OPTS] )
         or die "IO::Uncompress::UnLzf failed: $UnLzfError\n";
 
 Returns an C<IO::Uncompress::UnLzf> object on success and undef on failure.
