@@ -19,7 +19,7 @@ $LzfError = '';
 @ISA    = qw( IO::Compress::Base Exporter );
 @EXPORT_OK = qw( $LzfError lzf ) ;
 %EXPORT_TAGS = %IO::Compress::Base::EXPORT_TAGS ;
-push @{ $EXPORT_TAGS{all} }, @EXPORT_OK ;
+$EXPORT_TAGS{all} = [ defined $EXPORT_TAGS{all} ? @{ $EXPORT_TAGS{all} } : (), @EXPORT_OK ] ;
 Exporter::export_ok_tags('all');
 
 sub new
