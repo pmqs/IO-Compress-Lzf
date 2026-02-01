@@ -1,6 +1,32 @@
 CHANGES
 -------
 
+  2.217 1 February 2027
+
+    * Update release date in README
+    Sun Feb 1 11:18:25 2026 +0000
+    2bb9fbcf89fc4d8e3cf37d0277254e1b75e2f05b
+
+    * Rework workflow to automatically detect and use all the available the versions of perl available
+    Sun Feb 1 11:17:02 2026 +0000
+    24dbdfcfb3cd1698682764f3417a21bd6fe7c788
+
+    * Update version to 2.217
+    Sat Jan 31 11:39:22 2026 +0000
+    70c3745fac91574b2ebb94b364b5d26802f7acd2
+
+    * Merge pull request #2 from pmqs/dependabot/github_actions/actions/checkout-6
+    Fri Jan 30 09:24:54 2026 +0000
+    1eeaf12ccd886ecae732a36b626262704dd5461e
+
+    * Bump actions/checkout from 4 to 6
+    Fri Jan 30 09:06:17 2026 +0000
+    6c5b998d2abc8e21266ba1c6e4f167e0938da956
+
+    * Remove target-branch specification from dependabot.yml
+    Fri Jan 30 09:05:07 2026 +0000
+    a548ca545e9ac71fc32388b5639c83acf2a1b353
+
   2.214 24 October 2025
 
     * version 2.214
