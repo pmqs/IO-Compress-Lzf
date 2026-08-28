@@ -8,9 +8,6 @@ $::VERSION = '2.224' ;
 use lib '.';
 use ExtUtils::MakeMaker 5.16 ;
 
-UpDowngrade(getPerlFiles('MANIFEST'))
-    unless $ENV{PERL_CORE};
-
 WriteMakefile(
     NAME         => 'IO::Compress::Lzf',
     VERSION_FROM => 'lib/IO/Compress/Lzf.pm',
